@@ -267,7 +267,9 @@ module.exports = (cmd, args, opts) => {
 		result.stdout = arr[1];
 		result.stderr = arr[2];
 
-		if (result.error || result.code !== 0 || result.signal !== null) {
+		
+		if (result.code !== null) { // ffmpeg no return，if (result.error || result.code !== 0 || result.signal !== null) {
+		
 			const err = makeError(result, {
 				joinedCmd,
 				parsed,
